@@ -12,7 +12,7 @@ A professional Windows application for changing DNS settings easily.
 
 ## Installation
 
-1. Download the latest release from [Releases](https://github.com/yourusername/dns-changer/releases)
+1. Download the latest release from [Releases](https://github.com/AmirSfrz/DNS-Changer---Windows/releases)
 2. Run the installer
 3. Launch the application (Admin privileges required)
 
