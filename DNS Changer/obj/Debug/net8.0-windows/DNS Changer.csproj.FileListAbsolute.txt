@@ -14,3 +14,9 @@ C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\refin
 C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\DNS Changer.pdb
 C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\DNS Changer.genruntimeconfig.cache
 C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\ref\DNS Changer.dll
+C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\DNS Changer.csproj.AssemblyReference.cache
+C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\DNS_Changer.Properties.Resources.resources
+C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\DNS Changer.sourcelink.json
+C:\Users\H.R\source\repos\DNS-Changer\DNS Changer\obj\Debug\net8.0-windows\DNS Chan.2137727C.Up2Date

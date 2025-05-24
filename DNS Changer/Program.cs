@@ -1,4 +1,5 @@
 using DNSChanger.Core.Services;
+using DNSChanger.WinForms.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
@@ -27,20 +28,22 @@ namespace DNS_Changer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var services = new ServiceCollection();
-            ConfigureServices(services);
+            // Manual dependency injection
+            var dnsService = new DNSService();
+            var updateService = new GitHubUpdateService();
+            var mainForm = new Form1(
+                new MainController(dnsService),
+                updateService);
 
-            using (var serviceProvider = services.BuildServiceProvider())
-            {
-                var form = serviceProvider.GetRequiredService<Form1>();
-                Application.Run(form);
-            }
+            Application.Run(mainForm);
         }
 
         private static void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IDNSService, DNSService>();
+            services.AddSingleton<IUpdateService, GitHubUpdateService>();
             services.AddTransient<Form1>();
+
         }
     }
 }

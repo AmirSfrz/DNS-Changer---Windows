@@ -11,17 +11,22 @@ namespace DNS_Changer
     public partial class Form1 : Form
     {
         private readonly MainController _controller;
+        private readonly IUpdateService _updateService;
 
-        public Form1()
+        public Form1(MainController controller, IUpdateService updateService)
         {
             InitializeComponent();
-            _controller = new MainController(new DNSService());
+            _controller = controller;
+            _updateService = updateService;
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
             await LoadCurrentDNS();
             LoadAvailableDNSServers();
+
+            // Check for updates (don't await to avoid blocking UI)
+            _ = CheckForUpdatesAsync();
         }
 
         private async Task LoadCurrentDNS()
@@ -43,6 +48,42 @@ namespace DNS_Changer
             {
                 MessageBox.Show($"Error loading current DNS: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private async Task CheckForUpdatesAsync()
+        {
+            try
+            {
+                var currentVersion = Application.ProductVersion;
+
+                var updateAvailable = await _updateService.CheckForUpdatesAsync(currentVersion);
+                if (updateAvailable)
+                {
+                    var result = MessageBox.Show(
+                        "A new version is available! Would you like to download it now?",
+                        "Update Available",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        var url = _updateService.GetLatestReleaseUrl();
+                        if (!string.IsNullOrEmpty(url))
+                        {
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = url,
+                                UseShellExecute = true
+                            });
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // Silently fail - we don't want to bother users with update check errors
             }
         }
 

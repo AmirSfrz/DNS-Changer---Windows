@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "DNS Changer/1.0.0": {
+      "DNS Changer/1.0.2": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "9.0.5",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.5"
@@ -37,7 +37,7 @@
     }
   },
   "libraries": {
-    "DNS Changer/1.0.0": {
+    "DNS Changer/1.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("DNS Changer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d881f143a77f182c7ecaf1dc230e3dc43d61f0c7")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+ba3b27e65c828ee53ed896b8e4bb63fcc39d8236")]
 [assembly: System.Reflection.AssemblyProductAttribute("DNS Changer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DNS Changer")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
