@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "QrPq29fBujU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\H.R\\source\\repos\\DNS-Changer\\DNS Changer\\DNS Changer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\H.R\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.5\\microsoft.extensions.dependencyinjection.9.0.5.nupkg.sha512",
+    "C:\\Users\\H.R\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.5\\microsoft.extensions.dependencyinjection.abstractions.9.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
