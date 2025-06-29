@@ -53,17 +53,24 @@ namespace DNSChanger.Core.Services
             });
         }
 
+        public NetworkInterface? GetCurrentInterface()
+        {
+            var activeInterface = NetworkInterface.GetAllNetworkInterfaces()
+                .Where(ni => ni.OperationalStatus == OperationalStatus.Up &&
+                            ni.NetworkInterfaceType != NetworkInterfaceType.Loopback &&
+                            ni.GetIPProperties().GatewayAddresses.Count > 0)
+                .FirstOrDefault();
+
+            return activeInterface;
+        }
+
         public async Task<bool> SetDNSAsync(DNSItem dnsItem)
         {
             return await Task.Run(() =>
             {
                 try
                 {
-                    var activeInterface = NetworkInterface.GetAllNetworkInterfaces()
-                        .Where(ni => ni.OperationalStatus == OperationalStatus.Up &&
-                                    ni.NetworkInterfaceType != NetworkInterfaceType.Loopback &&
-                                    ni.GetIPProperties().GatewayAddresses.Count > 0)
-                        .FirstOrDefault();
+                    var activeInterface = GetCurrentInterface();
 
                     if (activeInterface == null) return false;
 

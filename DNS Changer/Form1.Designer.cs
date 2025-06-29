@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             groupBox1 = new GroupBox();
+            activeInterfaceName = new Label();
+            label4 = new Label();
             CurrentDnsNameTxt = new Label();
             label2 = new Label();
             currentDns2 = new TextBox();
@@ -39,6 +41,7 @@
             setDnsButton = new Button();
             DnsList = new ListBox();
             pictureBox1 = new PictureBox();
+            linkLabel1 = new LinkLabel();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -46,6 +49,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(linkLabel1);
+            groupBox1.Controls.Add(activeInterfaceName);
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(CurrentDnsNameTxt);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(currentDns2);
@@ -53,16 +59,33 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(288, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(245, 139);
+            groupBox1.Size = new Size(260, 158);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Current Settings";
-            //groupBox1.Enter += groupbox;
+            // 
+            // activeInterfaceName
+            // 
+            activeInterfaceName.AutoSize = true;
+            activeInterfaceName.Location = new Point(119, 103);
+            activeInterfaceName.Name = "activeInterfaceName";
+            activeInterfaceName.Size = new Size(36, 15);
+            activeInterfaceName.TabIndex = 6;
+            activeInterfaceName.Text = "None";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(10, 103);
+            label4.Name = "label4";
+            label4.Size = new Size(92, 15);
+            label4.TabIndex = 5;
+            label4.Text = "Active Interface:";
             // 
             // CurrentDnsNameTxt
             // 
             CurrentDnsNameTxt.AutoSize = true;
-            CurrentDnsNameTxt.Location = new Point(95, 107);
+            CurrentDnsNameTxt.Location = new Point(119, 127);
             CurrentDnsNameTxt.Name = "CurrentDnsNameTxt";
             CurrentDnsNameTxt.Size = new Size(36, 15);
             CurrentDnsNameTxt.TabIndex = 4;
@@ -71,7 +94,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(10, 107);
+            label2.Location = new Point(10, 127);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 3;
@@ -80,19 +103,19 @@
             // currentDns2
             // 
             currentDns2.BackColor = SystemColors.ActiveCaption;
-            currentDns2.Location = new Point(95, 50);
+            currentDns2.Location = new Point(119, 50);
             currentDns2.Name = "currentDns2";
             currentDns2.ReadOnly = true;
-            currentDns2.Size = new Size(144, 23);
+            currentDns2.Size = new Size(135, 23);
             currentDns2.TabIndex = 2;
             // 
             // currentDns1
             // 
             currentDns1.BackColor = SystemColors.ActiveCaption;
-            currentDns1.Location = new Point(95, 21);
+            currentDns1.Location = new Point(119, 21);
             currentDns1.Name = "currentDns1";
             currentDns1.ReadOnly = true;
-            currentDns1.Size = new Size(144, 23);
+            currentDns1.Size = new Size(135, 23);
             currentDns1.TabIndex = 1;
             // 
             // label1
@@ -145,16 +168,31 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(56, 127);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(46, 15);
+            linkLabel1.TabIndex = 7;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Refresh";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(545, 288);
+            ClientSize = new Size(560, 288);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
             Name = "Form1";
+            SizeGripStyle = SizeGripStyle.Hide;
             Text = "DNS Changer";
             Load += MainForm_Load;
             groupBox1.ResumeLayout(false);
@@ -176,5 +214,8 @@
         private Button setDnsButton;
         private ListBox DnsList;
         private PictureBox pictureBox1;
+        private Label activeInterfaceName;
+        private Label label4;
+        private LinkLabel linkLabel1;
     }
 }

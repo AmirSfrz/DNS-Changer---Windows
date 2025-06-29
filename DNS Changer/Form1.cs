@@ -43,6 +43,9 @@ namespace DNS_Changer
                     CurrentDnsNameTxt.Text = matchedServer?.Name ?? "Custom";
                     CurrentDnsNameTxt.ForeColor = matchedServer != null ? Color.Green : Color.Red;
                 }
+
+                var currentActiveInterface = _controller.GetCurrentInterface();
+                activeInterfaceName.Text = currentActiveInterface?.Name ?? "None";
             }
             catch (Exception ex)
             {
@@ -114,18 +117,27 @@ namespace DNS_Changer
                 var success = await _controller.SetDNSAsync(DnsList.SelectedIndex);
                 if (success)
                 {
+                    this.Activate();
+                    this.BringToFront();
+                    this.Focus();
                     MessageBox.Show("DNS set successfully!", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await LoadCurrentDNS();
                 }
                 else
                 {
+                    this.Activate();
+                    this.BringToFront();
+                    this.Focus();
                     MessageBox.Show("Failed to set DNS.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
+                this.Activate();
+                this.BringToFront();
+                this.Focus();
                 MessageBox.Show($"Error setting DNS: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -135,6 +147,11 @@ namespace DNS_Changer
                 setDnsButton.Enabled = true;
                 DnsList.Enabled = true;
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoadCurrentDNS();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DNSChanger.Core.Models;
 using DNSChanger.Core.Services;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
 namespace DNSChanger.WinForms.Controllers
@@ -19,7 +20,12 @@ namespace DNSChanger.WinForms.Controllers
             return await _dnsService.GetCurrentDNSAsync();
         }
 
-        public IEnumerable<DNSItem> GetAvailableDNSServers()
+        public NetworkInterface? GetCurrentInterface()
+        {
+            return _dnsService.GetCurrentInterface();
+        }
+
+            public IEnumerable<DNSItem> GetAvailableDNSServers()
         {
             return _dnsService.GetAvailableDNSServers();
         }
